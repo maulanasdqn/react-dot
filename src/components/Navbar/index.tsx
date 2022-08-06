@@ -17,7 +17,7 @@ export const Navbar = (): ReactElement => {
         </div>
         <div className="flex gap-x-4">
           <Link to="/login">
-            <Button type="button" bgColor="bg-blue-400" text="Login" />
+            <Button type="button" isPrimary text="Login" />
           </Link>
           <Link to="/register">
             <Button type="button" text="Register" />
