@@ -1,3 +1,4 @@
+import { getErrorMessage } from "../../utilities/helper";
 import ApiService from "../api/index.services";
 
 const CandidateService = {
@@ -14,7 +15,7 @@ const CandidateService = {
       const response = await ApiService.customRequest(requestData);
       return response.data;
     } catch (error) {
-      throw error;
+      getErrorMessage(error);
     }
   },
 };

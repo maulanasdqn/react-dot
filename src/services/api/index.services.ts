@@ -2,15 +2,14 @@ import axios from "axios";
 import { TokenService } from "../token/index.services";
 
 const ApiService = {
-
   init(baseURL: string) {
     axios.defaults.baseURL = baseURL;
   },
 
   setHeader() {
     axios.defaults.headers.common[
-      'Authorization'
-    ] = `Bearer ${TokenService.getToken()}`
+      "Authorization"
+    ] = `Bearer ${TokenService.getToken()}`;
   },
 
   removeHeader() {
@@ -21,11 +20,11 @@ const ApiService = {
     return axios.get(resource);
   },
 
-  post(resource: string, data: any) {
+  post(resource: string, data: object) {
     return axios.post(resource, data);
   },
 
-  put(resource: string, data: any) {
+  put(resource: string, data: object) {
     return axios.put(resource, data);
   },
 
@@ -33,7 +32,7 @@ const ApiService = {
     return axios.delete(resource);
   },
 
-  customRequest(data: any) {
+  customRequest(data: object) {
     return axios(data);
   },
 };
