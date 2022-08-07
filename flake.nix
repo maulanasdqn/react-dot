@@ -22,7 +22,7 @@
           export PRISMA_FMT_BINARY="${prisma-engines}/bin/prisma-fmt"
           export PATH=~/.npm-packages/bin:$PATH
           export NODE_PATH=~/.npm-packages/lib/node_modules
-          echo "DATABASE_URL="postgresql://youruser:yourpass@yourhost:yourport/yourdb-db?schema=public" >> .env
+          echo "VITE_API_URL="https://api-votsu.herokuapp.com" >> .env
         '';
       };
     });
