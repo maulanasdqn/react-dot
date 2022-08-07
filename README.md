@@ -62,3 +62,8 @@ Karena disini saya menggunakan api dari **votsu**\
 Maka pada bagian `VITE_API_URL` isi dengan https://api-votsu.herokuapp.com
 
 > **Note:** Jika menggunakan Nix maka **.env** sudah ter-setup dengan sendirinya
+
+# Dummy Account
+Untuk mencoba login bisa menggunakan akun dibawah ini\
+> **email : ** maulana@pbs.id\
+>**password : ** anjay123
