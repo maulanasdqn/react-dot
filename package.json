@@ -10,12 +10,14 @@
     "lint": "eslint src/**/*.ts src/**/*.tsx"
   },
   "dependencies": {
+    "@types/qs": "^6.9.7",
     "@unocss/reset": "^0.45.5",
     "axios": "^0.27.2",
     "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "6"
+    "react-router-dom": "6",
+    "recoil": "^0.7.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",

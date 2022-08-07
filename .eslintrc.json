@@ -46,7 +46,11 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
     },
     "react": {
       "version": "detect"

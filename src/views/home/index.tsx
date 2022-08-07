@@ -6,7 +6,7 @@ import { Layouts } from "../../components/Layouts/index";
 const HeadContent = (): ReactElement => {
   return (
     <>
-      <h1 className="text-4xl text-white font-bold">Test Drive</h1>
+      <h1 className="text-4xl text-white font-bold">React DOT</h1>
     </>
   );
 };

@@ -2,28 +2,30 @@ import ApiService from "../api/index.services";
 import { TokenService } from "../token/index.services";
 import { LoginTypes } from "../../utilities/types/login.types";
 import { RegisterType } from "../../utilities/types/register.types";
+import { getErrorMessage, handleError } from "../../utilities/helper";
+import qs from "qs";
 
 const AuthService = {
   login: async function (payload: LoginTypes) {
     const { email, password } = payload;
-    const requestData = {
-      method: "post",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      url: "auth/local/login",
-      data: {
-        email,
-        password,
-      },
-    };
-
     try {
+      const requestData = {
+        method: "post",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        url: "auth/local/login",
+        data: qs.stringify({
+          email,
+          password,
+        }),
+      };
+
       const response = await ApiService.customRequest(requestData);
       TokenService.saveToken(response.data.access_token);
       TokenService.saveRefreshToken(response.data.refresh_token);
       ApiService.setHeader();
       return response.data.access_token;
     } catch (error) {
-      throw error;
+      throw handleError(error);
     }
   },
 
@@ -46,12 +48,12 @@ const AuthService = {
       ApiService.setHeader();
       return response.data.access_token;
     } catch (error) {
-      throw error;
+      throw handleError(error);
     }
   },
 
   logout() {
-    localStorage.clear();
+    window.localStorage.clear();
     ApiService.removeHeader();
   },
 
@@ -61,19 +63,19 @@ const AuthService = {
       method: "post",
       headers: { "Content-Type": "application/json" },
       url: "/auth/local/register",
-      data: {
+      data: qs.stringify({
         email,
         password,
         fullname,
         grade,
         student_id: studentId,
-      },
+      }),
     };
 
     try {
       return await ApiService.customRequest(registerData);
     } catch (error) {
-      throw error;
+      throw getErrorMessage(error);
     }
   },
 };
